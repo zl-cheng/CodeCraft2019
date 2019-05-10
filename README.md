@@ -28,5 +28,6 @@
 * 针对决赛地图的有连通性高、车道数多、分布对称的特点，我们方案还是比较适应的。因为在车道宽和连通性高情况下不容易造成拥塞，还有依据车辆目的地和终点的分布特性，均匀发车策略也比较适合对称的地图。
 ## 其他工作
 * 针对github上的可视化开源 [https://github.com/AkatsukiCC/huawei2019-with-visualization](https://github.com/AkatsukiCC/huawei2019-with-visualization)，做了一些魔改，主要是降低了绘制时间，修改了显示内容，改变了坐标计算方式，可视化添加了车辆身份显示(红色：优先预置车辆、粉色：优先车辆、蓝色：预置车辆、绿色：普通车辆)，因为修改了原先开源项目的可视化协议，使用了我们自己的json格式协议，就没有尝试把我们的版本commit上去。
+![可视化样图](https://github.com/zl-cheng/CodeCraft2019/blob/master/Visualization/demo.jpg)
 * 为了验证我们方案的稳定型，也生成了几份分布比较极端的地图。
  
