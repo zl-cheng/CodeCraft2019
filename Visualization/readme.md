@@ -14,7 +14,7 @@
 
 1. \*-map-\* 是官方的地图
 
-2. map-strange-\* 是个人测试坐标计算方法用的道路跨节点的地图，虽然官方没有出这种图
+2. map-strange-\* 是个人测试坐标计算方法用的跨节点的道路的地图，虽然官方没有出这种图
 
 3. src 下面是代码
 
@@ -30,7 +30,7 @@
 
 #### 2. CoordinateFileOper.py
 
-文本形式的坐标标记
+文本形式的坐标标记，没啥用
 
 #### 3.  MapVisualization.py
 
@@ -98,7 +98,7 @@ visual =  Visualization(car_path,road_path,cross_path,preAns_path,savePath,**kwa
     
         showRoadInfo = True 参数，控制是否显示红色的道路情况信息，默认True。
     
-        computeCoordinate = 1 参数。默认为1，即原作者坐标计算方式。若为2，增强计算方式，可以计算道路跨坐标（如map-stange-*中的图）的图（要用到 CrossCoordinate.py 文件）。
+        computeCoordinate = 1 参数。默认为1，即原作者坐标计算方式。若为2，增强计算方式，可以计算跨结点道路（如map-stange-*中的图）的图（要用到 CrossCoordinate.py 文件）。
 
 #### 以下是绘制接口
 
@@ -109,8 +109,6 @@ visual =  Visualization(car_path,road_path,cross_path,preAns_path,savePath,**kwa
    直接调用此接口，则绘制一张空地图（即只有路口和道路的，没有任何运行车辆）。
    
    注：绘制空地图时，presetAnswer.txt和car.txt文件内容可以为空（如，当你自己创建了自定义地图，想看一下地图长什么样子时，只需要提供cross.txt和road.txt两个文件，而presetAnswer.txt和car.txt文件内容可以为空）。
-
-
 
 2. visual.drawImgsFromJsonFile(jsonfileName)
    
@@ -124,15 +122,13 @@ visual =  Visualization(car_path,road_path,cross_path,preAns_path,savePath,**kwa
    
    所以，该接口是读取json文件后，然后再调用解析jsonDict的接口进行绘制而已。
    
-   若对json文件内容有困惑，在 3-map-training-2 地图下，附带了一个json文件。里面有82个时刻的地图图片。
-
-
+   若对json文件内容有困惑，在 3-map-training-2 地图下，附带了一个json文件。里面有82个时刻的地图流量数据。
 
 3. visual.drawImgsFromJsonDict(jsonDict)
    
    传递一个 json 字典进行绘制。
    
-   （这种方式，也就Python的调度器能用，所以也不推荐，使用下面的解析json文件的方式更科学，更通用）
+   （这种方式，也就Python的调度器能用，所以不推荐，使用上面的解析json文件的方式更科学，更通用）
    
    该 jsonDict 结构：
 
@@ -180,25 +176,23 @@ jsonDict = {
 
 上图中元素说明
 
-  a. 图片左上角，显示的是 该图片生成的路径，和该地图中总车数（上图有11辆车）
+  a. 图片左上角，显示的是 该图片生成的路径，和该地图中总车数（如上图有11辆车）
 
-  b. 每条路正向车道在正方向的右侧
+  b. 每条路正向车道在道路正方向的右侧
 
   c. 每条道路旁的四行信息（可用初始化时的showRoadInfo参数控制是否显示）
 
     5689 : 该道路 id
-
+    
     1764 -> 790 : 该道路正方向
-
+    
     20,10 : 该道路长度和限速
-
+    
     4,2,2/3,1,2 : 该道路正向/反向方向上，总车数，优先车数，预置车数。（空地图没有这行信息）
-
-
 
 ## example
 
-下面exmaple，是以MapVisualization文件所在目录做相对路径的。
+下面exmaple，是以MapVisualization文件所在目录为相对路径的。
 
 ### 1. 绘制空地图
 
@@ -279,17 +273,3 @@ visual.drawMap("strange-1")
 自定义的跨节点道路效果图：
 
 ![strange](./readmeImgs/strange-1.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
