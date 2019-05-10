@@ -1,0 +1,11 @@
+x = [roadNums, crossNums, sumRoadChannel,]
+
+crossNums = len(CROSSDICT)
+sumRoadLength =0
+sumRoadChannel =0
+for road in ROADDICT.values():
+    roadNums += 1
+    sumRoadChannel += road.__channel__()
+    if road.isDuplex():
+        roadNums += 1
+        sumRoadChannel += road.__channel__()
